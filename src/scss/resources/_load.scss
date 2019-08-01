@@ -1,0 +1,62 @@
+.load{
+  margin: (567/1920)*100vw auto;
+  position:relative;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  >div{
+    height:18px;
+    width:18px;
+    border-radius: 50%;
+    background-color: $main-color;
+    position:absolute;
+    transform: translate(-50%);
+    animation-name: loadingChange;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    &:nth-of-type(1){
+      top:-50px;
+      left: 50%;
+    }
+    &:nth-of-type(2){
+      bottom:-50px;
+      left: 50%;
+      animation-delay: 2s;
+    }
+    &:nth-of-type(3){
+      bottom:-35px;
+      left:-20px;
+      animation-delay: 2.5s;
+    }
+    &:nth-of-type(4){
+      left:-35px;
+      top:0;
+      animation-delay: 3s;
+    }
+    &:nth-of-type(5){
+      top:-35px;
+      left:-20px;
+      animation-delay: 3.5s;
+    }
+    &:nth-of-type(6){
+      top:-35px;
+      right:-40px;
+      animation-delay: 0.5s;
+    }
+    &:nth-of-type(7){
+      right:-54px;
+      top:0%;
+      animation-delay: 1s;
+    }
+    &:nth-of-type(8){
+      right:-40px;
+      bottom:-35px;
+      animation-delay: 1.5s;
+    }
+  }
+}
+@keyframes loadingChange {
+  from {opacity:1}
+  to {opacity:0}
+}
