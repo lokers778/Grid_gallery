@@ -1,1 +1,122 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var l=t[r]={i:r,l:!1,exports:{}};return e[r].call(l.exports,l,l.exports,n),l.l=!0,l.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var l in e)n.d(r,l,function(t){return e[t]}.bind(null,l));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){n(1),e.exports=n(2)},function(e,t){document.addEventListener("DOMContentLoaded",function(){let e=document.querySelector("div.grid"),t=document.querySelector(".showBtn"),n=[],r="show all",l=[],o="false",i=!1;fetch("http://www.splashbase.co/api/v1/images/search?query=tree").then(e=>e.json()).then(e=>{s(e.images)});const s=e=>{n=e,"show all"===r?l=n:"unsplash"===r?l=n.filter(e=>"unsplash"===e.site):"littlevisuals"===r?l=n.filter(e=>"littlevisuals"===e.site):"travelcoffeebook"===r?l=n.filter(e=>"travelcoffeebook"===e.site):"jaymantri"===r&&(l=n.filter(e=>"jaymantri"===e.site)),u(l)},u=n=>{let r=[],l=0;e.innerHTML="";for(let i=0;i<n.length;i++){let s=n[i].url,u=document.createElement("img");r.push(u),u.setAttribute("src",s),u.setAttribute("class","hidden"),u.addEventListener("click",()=>{f(s)}),e.appendChild(u),u.onload=(()=>{++l===n.length&&"true"==(o="true")&&(null!==document.querySelector(".load")&&document.querySelector(".load").setAttribute("class","hidden"),t.classList.remove("hidden"),e.classList.remove("hidden"))})}a()},c=()=>{let e=document.querySelectorAll(".filterButtons button");for(let t=0;t<e.length;t++)e[t].classList.remove("active")},a=()=>{let e=document.querySelectorAll(" img");if(e.length>10)for(let t=0;t<10;t++)e[t].setAttribute("class","active");else for(let t=0;t<e.length;t++)e[t].setAttribute("class","active");d()},d=()=>{t.addEventListener("click",()=>{let e=document.querySelectorAll(" img");if(!1===i){for(let t=0;t<e.length;t++)e[t].setAttribute("class","active");t.innerText="SHOW LESS",i=!0}else if(1==i){for(let t=10;t<e.length;t++)e[t].setAttribute("class","hidden");t.innerText="SHOW MORE",i=!1}})},f=e=>{let t=document.querySelector("div.fullScreen");t.classList.remove("hidden");let n=document.querySelector("div.fullScreen > button");t.style.backgroundImage=`url(${e})`,n.addEventListener("click",()=>{t.classList.add("hidden")})};(()=>{let e=document.querySelectorAll(".filterButtons button");for(let l=0;l<e.length;l++)e[l].addEventListener("click",()=>{c(),e[l].classList.add("active"),r=e[l].dataset.category,s(n),d(),t.innerText="SHOW MORE",i=!1});d()})(),d()})},function(e,t){}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/js/index.js":
+/*!*************************!*\
+  !*** ./src/js/index.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("document.addEventListener(\"DOMContentLoaded\", function () {\n  //variables\n  let grid = document.querySelector(\"div.grid\");\n  let button = document.querySelector(\".showBtn\");\n  let images = [];\n  let category = \"show all\";\n  let imagesToDisplay = [];\n  let loaded = \"false\";\n  let clicked = false; //get Api data\n\n  fetch(\"http://www.splashbase.co/api/v1/images/search?query=tree\").then(response => response.json()).then(response => {\n    filterImages(response.images);\n  });\n\n  const changeLoadedStatus = () => {\n    loaded = \"true\";\n\n    if (loaded == \"true\") {\n      if (document.querySelector(\".load\") !== null) {\n        document.querySelector(\".load\").setAttribute(\"class\", \"hidden\");\n      }\n\n      button.classList.remove(\"hidden\");\n      grid.classList.remove(\"hidden\");\n    }\n  }; //Filter Images based on category\n\n\n  const filterImages = response => {\n    images = response;\n\n    if (category === \"show all\") {\n      imagesToDisplay = images;\n    } else if (category === \"unsplash\") {\n      imagesToDisplay = images.filter(image => image.site === \"unsplash\");\n    } else if (category === \"littlevisuals\") {\n      imagesToDisplay = images.filter(image => image.site === \"littlevisuals\");\n    } else if (category === \"travelcoffeebook\") {\n      imagesToDisplay = images.filter(image => image.site === \"travelcoffeebook\");\n    } else if (category === \"jaymantri\") {\n      imagesToDisplay = images.filter(image => image.site === \"jaymantri\");\n    }\n\n    bulidGrid(imagesToDisplay);\n  }; //display Images\n\n\n  const bulidGrid = response => {\n    let imagesArray = [];\n    let counter = 0;\n    grid.innerHTML = \"\";\n\n    for (let i = 0; i < response.length; i++) {\n      let image = response[i].url;\n      let newImage = document.createElement(\"img\");\n      imagesArray.push(newImage);\n      newImage.setAttribute(\"src\", image);\n      newImage.setAttribute(\"class\", \"hidden\");\n      newImage.addEventListener(\"click\", () => {\n        fullScreenShow(image);\n      });\n      grid.appendChild(newImage);\n\n      newImage.onload = () => {\n        counter++;\n\n        if (counter === response.length) {\n          changeLoadedStatus();\n        }\n      };\n    }\n\n    active();\n  };\n\n  const changeClass = () => {\n    let filterButtons = document.querySelectorAll(\".filterButtons button\");\n\n    for (let i = 0; i < filterButtons.length; i++) {\n      filterButtons[i].classList.remove(\"active\");\n    }\n  }; //show only some images\n\n\n  const active = () => {\n    let images = document.querySelectorAll(\" img\");\n\n    if (images.length > 10) {\n      for (let i = 0; i < 10; i++) {\n        images[i].setAttribute(\"class\", \"active\");\n      }\n    } else {\n      for (let i = 0; i < images.length; i++) {\n        images[i].setAttribute(\"class\", \"active\");\n      }\n    }\n\n    activeAll();\n  }; //Show more images\n\n\n  const activeAll = () => {\n    button.addEventListener(\"click\", () => {\n      let images = document.querySelectorAll(\" img\");\n\n      if (clicked === false) {\n        for (let i = 0; i < images.length; i++) {\n          images[i].setAttribute(\"class\", \"active\");\n        }\n\n        button.innerText = \"SHOW LESS\";\n        clicked = true;\n      } else if (clicked == true) {\n        for (let i = 10; i < images.length; i++) {\n          images[i].setAttribute(\"class\", \"hidden\");\n        }\n\n        button.innerText = \"SHOW MORE\";\n        clicked = false;\n      }\n    });\n  }; //change category\n\n\n  const changeCategory = () => {\n    let filterButtons = document.querySelectorAll(\".filterButtons button\");\n\n    for (let i = 0; i < filterButtons.length; i++) {\n      filterButtons[i].addEventListener(\"click\", () => {\n        changeClass();\n        filterButtons[i].classList.add(\"active\");\n        category = filterButtons[i].dataset.category;\n        filterImages(images);\n        activeAll();\n        button.innerText = \"SHOW MORE\";\n        clicked = false;\n      });\n    }\n\n    activeAll();\n  }; //full screen image\n\n\n  const fullScreenShow = url => {\n    let fullImage = document.querySelector(\"div.fullScreen\");\n    fullImage.classList.remove(\"hidden\");\n    let closeButton = document.querySelector(\"div.fullScreen > button\");\n    fullImage.style.backgroundImage = `url(${url})`;\n    closeButton.addEventListener(\"click\", () => {\n      fullImage.classList.add(\"hidden\");\n    });\n  };\n\n  changeCategory();\n  activeAll();\n});\n\n//# sourceURL=webpack:///./src/js/index.js?");
+
+/***/ }),
+
+/***/ "./src/scss/index.scss":
+/*!*****************************!*\
+  !*** ./src/scss/index.scss ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./src/scss/index.scss?");
+
+/***/ }),
+
+/***/ 0:
+/*!*****************************************************!*\
+  !*** multi ./src/js/index.js ./src/scss/index.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ./src/js/index.js */\"./src/js/index.js\");\nmodule.exports = __webpack_require__(/*! ./src/scss/index.scss */\"./src/scss/index.scss\");\n\n\n//# sourceURL=webpack:///multi_./src/js/index.js_./src/scss/index.scss?");
+
+/***/ })
+
+/******/ });
