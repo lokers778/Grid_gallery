@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //get Api data
 
-    fetch("http://www.splashbase.co/api/v1/images/search?query=water")
+    fetch("http://www.splashbase.co/api/v1/images/search?query=tree")
         .then((response) => response.json())
         .then(response => {
             filterImages(response.images);
