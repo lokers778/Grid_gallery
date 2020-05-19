@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
             fullImage.classList.add("hidden");
         })
     };
-
+//
     changeCategory();
     activeAll();
 });
