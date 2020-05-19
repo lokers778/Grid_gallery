@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //get Api data
 
-    fetch("//www.splashbase.co/api/v1/images/search?query=tree")
+    fetch("http://www.splashbase.co/api/v1/images/search?query=tree")
         .then((response) => response.json())
         .then(response => {
             filterImages(response.images);
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const changeLoadedStatus = () => {
         loaded = "true";
         if (loaded == "true") {
-            if(document.querySelector(".load")!==null) {
+            if (document.querySelector(".load") !== null) {
                 document.querySelector(".load").setAttribute("class", "hidden");
             }
             button.classList.remove("hidden");
@@ -29,29 +29,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-//Filter Images based on category
+    //Filter Images based on category
     const filterImages = (response) => {
 
         images = response;
         if (category === "show all") {
             imagesToDisplay = images
         } else if (category === "unsplash") {
-            imagesToDisplay = images.filter(image => image.site === "unsplash"
-            );
+            imagesToDisplay = images.filter(image => image.site === "unsplash");
         } else if (category === "littlevisuals") {
-            imagesToDisplay = images.filter(image => image.site === "littlevisuals"
-            );
+            imagesToDisplay = images.filter(image => image.site === "littlevisuals");
         } else if (category === "travelcoffeebook") {
-            imagesToDisplay = images.filter(image => image.site === "travelcoffeebook"
-            );
+            imagesToDisplay = images.filter(image => image.site === "travelcoffeebook");
         } else if (category === "jaymantri") {
-            imagesToDisplay = images.filter(image => image.site === "jaymantri"
-            );
+            imagesToDisplay = images.filter(image => image.site === "jaymantri");
         }
         bulidGrid(imagesToDisplay)
     };
 
-//display Images
+    //display Images
     const bulidGrid = (response) => {
         let imagesArray = []
         let counter = 0
@@ -62,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
             imagesArray.push(newImage)
             newImage.setAttribute("src", image);
             newImage.setAttribute("class", "hidden");
-            newImage.addEventListener("click", ()=>{
+            newImage.addEventListener("click", () => {
                 fullScreenShow(image);
             })
             grid.appendChild(newImage);
@@ -83,22 +79,21 @@ document.addEventListener("DOMContentLoaded", function () {
             filterButtons[i].classList.remove("active");
         }
     };
-//show only some images
+    //show only some images
     const active = () => {
         let images = document.querySelectorAll(" img")
-        if(images.length>10){
+        if (images.length > 10) {
             for (let i = 0; i < 10; i++) {
                 images[i].setAttribute("class", "active");
             }
-        }
-        else {
+        } else {
             for (let i = 0; i < images.length; i++) {
                 images[i].setAttribute("class", "active");
             }
         }
         activeAll();
     };
-//Show more images
+    //Show more images
     const activeAll = () => {
         button.addEventListener("click", () => {
             let images = document.querySelectorAll(" img");
@@ -119,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     };
 
-//change category
+    //change category
     const changeCategory = () => {
         let filterButtons = document.querySelectorAll(".filterButtons button");
         for (let i = 0; i < filterButtons.length; i++) {
@@ -135,13 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         activeAll();
     };
-//full screen image
-    const fullScreenShow=(url)=>{
-        let fullImage=document.querySelector("div.fullScreen");
+    //full screen image
+    const fullScreenShow = (url) => {
+        let fullImage = document.querySelector("div.fullScreen");
         fullImage.classList.remove("hidden");
-        let closeButton= document.querySelector("div.fullScreen > button");
+        let closeButton = document.querySelector("div.fullScreen > button");
         fullImage.style.backgroundImage = `url(${url})`
-        closeButton.addEventListener("click",()=>{
+        closeButton.addEventListener("click", () => {
             fullImage.classList.add("hidden");
         })
     };
